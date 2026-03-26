@@ -34,7 +34,7 @@ if (process.env.NODE_ENV === "development") {
 
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || "http://localhost:5174",
+    origin: process.env.CLIENT_URL || "https://crm-1-ten.vercel.app",
     credentials: true,
   })
 );
