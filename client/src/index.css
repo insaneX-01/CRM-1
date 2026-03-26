@@ -1,0 +1,288 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand: #ef6c2f;
+  --brand-2: #b93815;
+  --accent: #0f8b8d;
+  --accent-2: #1d4ed8;
+  --text-strong: #1c1917;
+  --text-default: #44403c;
+  --text-muted: #78716c;
+  --text-soft: #a8a29e;
+  --surface: #f7f3eb;
+  --surface-2: #fffaf2;
+  --line: rgba(120, 113, 108, 0.18);
+  --shadow-xl: 0 25px 70px rgba(41, 37, 36, 0.12);
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  @apply bg-stone-100;
+  font-family: "Outfit", "Segoe UI", sans-serif;
+  color: var(--text-default);
+  background:
+    radial-gradient(circle at top left, rgba(239, 108, 47, 0.16), transparent 28%),
+    radial-gradient(circle at top right, rgba(15, 139, 141, 0.14), transparent 30%),
+    linear-gradient(180deg, var(--surface-2) 0%, var(--surface) 55%, #efe7dc 100%);
+  background-color: var(--surface);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Space Grotesk", "Outfit", sans-serif;
+  color: var(--text-strong);
+  letter-spacing: -0.04em;
+}
+
+p,
+li,
+label,
+input,
+textarea,
+select,
+button,
+td,
+th {
+  color: inherit;
+}
+
+::placeholder {
+  color: var(--text-soft);
+  opacity: 1;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    @apply bg-stone-950;
+    color: #e7e5e4;
+    background:
+      radial-gradient(circle at top left, rgba(249, 115, 22, 0.16), transparent 28%),
+      radial-gradient(circle at top right, rgba(13, 148, 136, 0.12), transparent 30%),
+      linear-gradient(180deg, #11100f 0%, #171412 55%, #09090b 100%);
+    background-color: #09090b;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #fafaf9;
+  }
+
+  .card {
+    @apply border-stone-800 bg-stone-900;
+  }
+}
+
+* {
+  @apply box-border;
+}
+
+a {
+  @apply text-brand hover:text-brand-2;
+}
+
+[class~="text-slate-900"] {
+  color: #1c1917;
+}
+
+[class~="text-slate-800"] {
+  color: #292524;
+}
+
+[class~="text-slate-700"] {
+  color: #44403c;
+}
+
+[class~="text-slate-600"] {
+  color: #57534e;
+}
+
+[class~="text-slate-500"] {
+  color: #78716c;
+}
+
+[class~="text-slate-400"] {
+  color: #a8a29e;
+}
+
+[class~="dark:text-slate-100"],
+[class~="dark:text-white"] {
+  color: #fafaf9;
+}
+
+[class~="dark:text-slate-200"] {
+  color: #e7e5e4;
+}
+
+[class~="dark:text-slate-300"] {
+  color: #d6d3d1;
+}
+
+[class~="dark:text-slate-400"] {
+  color: #a8a29e;
+}
+
+.container {
+  @apply mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.card {
+  @apply rounded-2xl border bg-white;
+  border-color: var(--line);
+  box-shadow: var(--shadow-xl);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 240ms ease-in-out;
+}
+
+@keyframes floatSlow {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -10px, 0);
+  }
+}
+
+.crm-shell {
+  position: relative;
+  isolation: isolate;
+}
+
+.crm-shell::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 15% 15%, rgba(245, 158, 11, 0.14), transparent 18%),
+    radial-gradient(circle at 85% 12%, rgba(14, 165, 233, 0.14), transparent 22%),
+    radial-gradient(circle at 50% 100%, rgba(239, 68, 68, 0.08), transparent 20%);
+}
+
+.crm-panel {
+  background:
+    linear-gradient(180deg, rgba(255, 253, 248, 0.92), rgba(255, 248, 240, 0.88));
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-xl);
+  backdrop-filter: blur(18px);
+}
+
+.crm-dark-panel {
+  background:
+    linear-gradient(180deg, rgba(28, 25, 23, 0.94), rgba(17, 24, 39, 0.9));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(18px);
+}
+
+.crm-grid {
+  background-image:
+    linear-gradient(rgba(120, 113, 108, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(120, 113, 108, 0.08) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.crm-orb {
+  animation: floatSlow 8s ease-in-out infinite;
+}
+
+.crm-input {
+  @apply w-full rounded-2xl border px-3 py-2.5 text-sm outline-none transition;
+  border-color: rgba(120, 113, 108, 0.22);
+  background: rgba(255, 252, 246, 0.9);
+  color: #292524;
+}
+
+.crm-input:focus {
+  border-color: rgba(239, 108, 47, 0.7);
+  box-shadow: 0 0 0 4px rgba(239, 108, 47, 0.12);
+}
+
+.crm-auth-shell {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top left, rgba(251, 146, 60, 0.22), transparent 22%),
+    radial-gradient(circle at right center, rgba(45, 212, 191, 0.16), transparent 24%),
+    linear-gradient(135deg, #1c1917 0%, #111827 38%, #0f172a 100%);
+  color: white;
+}
+
+.crm-auth-shell::before,
+.crm-auth-shell::after {
+  content: "";
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(20px);
+}
+
+.crm-auth-shell::before {
+  width: 18rem;
+  height: 18rem;
+  top: 5rem;
+  left: -4rem;
+  background: rgba(251, 146, 60, 0.22);
+}
+
+.crm-auth-shell::after {
+  width: 22rem;
+  height: 22rem;
+  right: -6rem;
+  bottom: -5rem;
+  background: rgba(45, 212, 191, 0.18);
+}
+
+.crm-auth-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 30px 90px rgba(15, 23, 42, 0.38);
+  backdrop-filter: blur(22px);
+}
+
+.crm-auth-card::before {
+  content: "";
+  position: absolute;
+  inset: auto auto -3rem -3rem;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 9999px;
+  background: rgba(251, 146, 60, 0.16);
+}
